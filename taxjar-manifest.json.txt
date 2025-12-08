@@ -7,7 +7,7 @@
     "MANAGE_ORDERS"
   ],
   "urls": {
-    "configuration_url": "https://your-config-page.com/taxjar",
-    "token_url": "https://your-backend.com/get-taxjar-token"
+    "configuration_url": "https://example.com/taxjar/config",
+    "token_url": "https://example.com/taxjar/token"
   }
 }
