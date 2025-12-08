@@ -10,9 +10,8 @@
   "extensions": [
     {
       "label": "Tax calculation",
-      "url": "http://165.227.51.107:3000/calculate-tax",
+      "url": "http://165.227.51.106:3000/calculate-tax",
       "mount": "TAX_CALCULATION"
     }
   ]
 }
-//
