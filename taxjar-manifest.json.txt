@@ -6,6 +6,7 @@
   "permissions": ["MANAGE_TAXES", "MANAGE_ORDERS"],
   "configurationUrl": "https://147pacific.com/app-config/taxjar",
   "appUrl": "https://147pacific.com",
+  "tokenTargetUrl": "https://147pacific.com/fake-token-endpoint",
   "webhooks": [],
   "extensions": []
 }
