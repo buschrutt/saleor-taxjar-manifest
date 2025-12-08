@@ -4,9 +4,14 @@
   "version": "1.0.0",
   "description": "Saleor integration with TaxJar for 147Pacific store",
   "permissions": ["MANAGE_TAXES", "MANAGE_ORDERS"],
-  "configurationUrl": "https://147pacific.com/app-config/taxjar",
-  "appUrl": "https://147pacific.com",
-  "tokenTargetUrl": "https://147pacific.com/fake-token-endpoint",
+  "configurationUrl": "http://165.227.51.107:3000/config",
+  "appUrl": "http://165.227.51.107:3000",
   "webhooks": [],
-  "extensions": []
+  "extensions": [
+    {
+      "label": "Tax calculation",
+      "url": "http://165.227.51.107:3000/calculate-tax",
+      "mount": "TAX_CALCULATION"
+    }
+  ]
 }
