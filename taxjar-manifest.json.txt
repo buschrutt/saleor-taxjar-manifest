@@ -1,0 +1,13 @@
+{
+  "name": "TaxJar Provider",
+  "version": "1.0",
+  "description": "Integration with TaxJar for automatic tax calculation",
+  "permissions": [
+    "MANAGE_TAXES",
+    "MANAGE_ORDERS"
+  ],
+  "urls": {
+    "configuration_url": "https://your-config-page.com/taxjar",
+    "token_url": "https://your-backend.com/get-taxjar-token"
+  }
+}
