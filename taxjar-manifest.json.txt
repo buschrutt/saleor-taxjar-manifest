@@ -1,24 +1,22 @@
 {
-  "id": "taxjar-app",
+  "id": "taxjar-provider",
   "version": "1.0.0",
-  "name": "TaxJar App",
-  "about": "Tax calculation via TaxJar API",
+  "name": "TaxJar Provider",
+  "about": "Tax calculation using TaxJar API",
+  "homepageUrl": "http://165.227.51.107:3000",
+  "supportUrl": "http://165.227.51.107:3000",
   "permissions": [
-    "MANAGE_ORDERS",
-    "MANAGE_CHANNELS"
+    "HANDLE_TAXES",
+    "MANAGE_OBSERVABILITY"
   ],
-  "app_url": "https://165.227.51.107/api",
-  "token_target_url": "https://165.227.51.107/api/register",
-  "data_privacy_url": "https://165.227.51.107/privacy",
-  "data_privacy": "This app sends order data to TaxJar to calculate accurate tax rates.",
-  "homepage_url": "https://165.227.51.107",
-  "support_url": "https://165.227.51.107/support",
-  "webhooks": [
+  "appUrl": "http://165.227.51.107:3000",
+  "configurationUrl": "http://165.227.51.107:3000/settings",
+  "tokenTargetUrl": "http://165.227.51.107:3000/api/register",
+  "extensions": [
     {
-      "name": "Calculate Taxes",
-      "target_url": "https://165.227.51.107/api/calculate",
-      "async_events": ["ORDER_CALCULATE_TAXES"],
-      "is_active": true
+      "label": "Tax Calculation Provider",
+      "mount": "TAX_CALCULATION",
+      "target": "http://165.227.51.107:3000/api/calculate"
     }
   ]
 }
