@@ -1,22 +1,56 @@
 {
-  "id": "taxjar-provider",
+  "id": "example.app.wonderful",
   "version": "1.0.0",
-  "name": "TaxJar Provider",
-  "about": "Tax calculation using TaxJar API",
-  "homepageUrl": "http://165.227.51.107:3000",
-  "supportUrl": "http://165.227.51.107:3000",
-  "permissions": [
-    "HANDLE_TAXES",
-    "MANAGE_OBSERVABILITY"
-  ],
-  "appUrl": "http://165.227.51.107:3000",
-  "configurationUrl": "http://165.227.51.107:3000/settings",
-  "tokenTargetUrl": "http://165.227.51.107:3000/api/register",
+  "requiredSaleorVersion": "^3.13",
+  "name": "My Wonderful App",
+  "author": "My Wonderful Company",
+  "about": "My Wonderful App is a wonderful App for Saleor.",
+
+  "permissions": ["MANAGE_USERS", "MANAGE_STAFF"],
+
+  "appUrl": "http://localhost:3001/app",
+  "configurationUrl": "htpp://localhost:3001/configuration",
+  "tokenTargetUrl": "http://localhost:3001/register",
+
+  "dataPrivacy": "Lorem ipsum",
+  "dataPrivacyUrl": "http://localhost:3001/app-data-privacy",
+  "homepageUrl": "http://localhost:3001/homepage",
+  "supportUrl": "http://localhost:3001/support",
+  "brand": {
+    "logo": {
+      "default": "http://localhost:3001/default-logo.png"
+    }
+  },
   "extensions": [
     {
-      "label": "Tax Calculation Provider",
-      "mount": "TAX_CALCULATION",
-      "target": "http://165.227.51.107:3000/api/calculate"
+      "label": "Create with Sample app",
+      "mount": "PRODUCT_OVERVIEW_CREATE",
+      "target": "POPUP",
+      "permissions": ["MANAGE_PRODUCTS"],
+      "url": "https://example.com/extension/"
+    },
+    {
+      "label": "Create with App and redirect",
+      "mount": "PRODUCT_OVERVIEW_CREATE",
+      "target": "APP_PAGE",
+      "permissions": ["MANAGE_PRODUCTS"],
+      "url": "/extension/redirect"
+    }
+  ],
+  "webhooks": [
+    {
+      "name": "Order created",
+      "asyncEvents": ["ORDER_CREATED"],
+      "query": "subscription { event { ... on OrderCreated { order { id }}}}",
+      "targetUrl": "https://example.com/api/webhooks/order-created",
+      "isActive": false
+    },
+    {
+      "name": "Multiple order's events",
+      "asyncEvents": ["ORDER_CREATED", "ORDER_FULLY_PAID"],
+      "query": "subscription { event { ... on OrderCreated { order { id }} ... on OrderFullyPaid { order { id }}}}",
+      "targetUrl": "https://example.com/api/webhooks/order-event",
+      "isActive": true
     }
   ]
 }
