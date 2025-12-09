@@ -1,17 +1,25 @@
 {
-  "id": "taxjar-provider-147pacific",
-  "name": "TaxJar Provider — 147Pacific",
+  "id": "taxjar-app",
+  "name": "TaxJar",
   "version": "1.0.0",
-  "description": "Saleor integration with TaxJar",
-  "permissions": ["MANAGE_TAXES", "MANAGE_ORDERS"],
-  "appUrl": "http://165.227.51.107:3000",
-  "configurationUrl": "http://165.227.51.107:3000/config",
-  "webhooks": [],
-  "extensions": [
+  "about": "Connects Saleor checkout to TaxJar and calculates sales tax via TaxJar API.",
+  "homepage_url": "https://www.taxjar.com",
+  "support_url": "https://www.taxjar.com/support",
+  "permissions": [
+    "MANAGE_ORDERS",
+    "MANAGE_CHANNELS"
+  ],
+  "app_url": "https://YOUR_SERVER_DOMAIN/api",
+  "token_target_url": "https://YOUR_SERVER_DOMAIN/api/register",
+  "data_privacy_url": "https://www.taxjar.com/privacy-policy",
+  "data_privacy": "This app transfers order information to TaxJar to calculate taxes.",
+  "webhooks": [
     {
-      "label": "Tax calculation",
-      "url": "http://165.227.51.107:3000/calculate-tax",
-      "mount": "TAX_CALCULATION"
+      "name": "Order Calculate Taxes",
+      "async_events": ["ORDER_CALCULATE_TAXES"],
+      "target_url": "https://YOUR_SERVER_DOMAIN/api/calculate",
+      "is_active": true
     }
   ]
 }
+
